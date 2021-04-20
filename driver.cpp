@@ -9,7 +9,6 @@
 #include "gamePlay.h"	//run the game
 
 #define BOARDSIZE 40	//
-#define MIN_DELAY 1000	//
 
 int main()
 {
@@ -23,8 +22,9 @@ int main()
 	
 	//initialize Screen
 	initscr();
-	cbreak();
 	noecho();
+	cbreak();
+	clear();
 	keypad(stdscr, TRUE);
 
 	//run menu loop
@@ -33,16 +33,15 @@ int main()
 	int position = 0;
 	while(nextAction != 'q' && nextAction != 'Q')
 	{	
-		homeMenu(position, stdscr);
+		printHomeMenu(position, scores, stdscr);
 		button = keymap.handleKeypress(getch());
 		nextAction = homeCaseSelect(button, position);
 		if(nextAction == 's')
 		{
-			runGame(position, stdscr);	//position acts as difficulty here
+			runGame(position, stdscr, BOARDSIZE, keymap);
 		}
 	}
 	//save scores
-
-	//close screen 
+	
 	endwin();
 }

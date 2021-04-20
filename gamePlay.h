@@ -1,9 +1,6 @@
-#include <iostream>
-#include <ncurses.h>
-//#include "snakeBody.h"
+#pragma once
 
-void runGame(int position, WINDOW *stdscr)
-{
-	std::cout << "\nWHATHAHDHWHAT\n\n";
+bool holdGameHostage(bool &gameOver, WINDOW* gameBoard, Controls keymap);
+void runGame(int position, WINDOW *stdscr, int boardSize, Controls keymap);
 
-}
+

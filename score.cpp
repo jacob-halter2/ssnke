@@ -1,8 +1,12 @@
 /* Dependencies
  *  score.h
  */
+#include <string>
+#include <cstring>
+#include <fstream>
 
 #include "score.h"
+
 
 Score::Score()
 {
@@ -56,12 +60,29 @@ void Score::setInit(char i [])
     }
 }
     
+
 /********************************** METHODS ***********************************/
 /**/
-void Score::printScore()
+int spaceSize(int i)
 {
+	if (i < 10)
+        return 12;
+    else return spaceSize(i/10) - 1;
 
 }
+
+std::string Score::getScoreString()
+{
+	std::string scoreString = "";
+	int width = spaceSize( this->getScore() );
+	scoreString += "  *  ";
+	scoreString += this->getInit(); 
+	scoreString += "  |  ";
+	for( int i = 0; i < width; i++)
+		{ scoreString += ' '; }
+	scoreString += std::to_string(this->getScore());
+	return scoreString;
+}	
 
 
 

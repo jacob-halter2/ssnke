@@ -1,5 +1,4 @@
 #pragma once
-#include <fstream>
 
 class Score
 {
@@ -16,7 +15,7 @@ public:
     void setInit(char i []);
 
     //methods
-    void printScore();
+    std::string getScoreString();
 
 private:
     int score;

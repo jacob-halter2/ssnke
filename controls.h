@@ -1,3 +1,4 @@
+#pragma once
 #include <ncurses.h>
 
 class Controls
@@ -29,50 +30,3 @@ private:
 	int  quit;
 }; 
 
-Controls::Controls()
-{
-	//get controls from file
-	//readFromFile
-	up		= 'w';
-	down	= 's';
-	left	= 'a';
-	right	= 'd';
-	pause	= 'p';
-	enter	= 'f';
-	quit	= 'q';
-}
-
-char Controls::handleKeypress(int receivedFromGetch)
-{
-	
-	int ch = receivedFromGetch;
-	if(ch == getUp())
-		return 'u';
-	/*switch(ch)
-	{
-		case this->getUp():
-			return 'u';
-			break;
-		case getDown():
-			return 'd';
-			break;
-		case getLeft():
-			return 'l';
-			break;
-        case getRight():
-            return 'r';
-            break;
-        case getPause():
-            return 'p';
-            break;
-        case getEnter():
-            return 'e';
-            break;
-		case getQuit():
-			return 'q';
-			break;
-		default:
-			break;
-	} */
-	return ' ';
-}
